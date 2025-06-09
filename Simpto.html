@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkyStay Connect - Hotels, Flights & Transfers</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#" class="logo">
+        <i class="fas fa-paper-plane"></i>
+        SkyStay Connect
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#" class="nav-link">Home</a></li>
+          <li><a href="#" class="nav-link">Flights</a></li>
+          <li><a href="#" class="nav-link">Hotels</a></li>
+          <li><a href="#" class="nav-link">Packages</a></li>
+          <li><a href="#" class="nav-link">About Us</a></li>
+          <li><a href="#" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <button class="btn btn-outline" id="login-btn">Login</button>
+        <button class="btn" id="signup-btn">Sign Up</button>
+      </div>
+      <button class="mobile-menu-btn" id="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Your Journey, Our Priority</h1>
+        <p>Book flights, hotels, and airport transfers in one seamless experience. Enjoy exclusive benefits with our integrated travel services.</p>
+        <button class="btn btn-secondary">Explore Special Offers</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Form Section -->
+  <section class="booking-section">
+    <div class="container">
+      <div class="booking-container">
+        <div class="booking-tabs">
+          <div class="booking-tab active" data-tab="combined">Combined Package</div>
+          <div class="booking-tab" data-tab="flights">Flights</div>
+          <div class="booking-tab" data-tab="hotels">Hotels</div>
+          <div class="booking-tab" data-tab="transfers">Airport Transfers</div>
+        </div>
+
+        <!-- Combined Package Form -->
+        <div class="booking-form" id="combined-form">
+          <form>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="combined-from">From</label>
+                <input type="text" id="combined-from" class="form-control" placeholder="City or Airport">
+              </div>
+              <div class="form-group">
+                <label for="combined-to">To</label>
+                <input type="text" id="combined-to" class="form-control" placeholder="City or Airport">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="combined-depart">Departure Date</label>
+                <input type="date" id="combined-depart" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="combined-return">Return Date</label>
+                <input type="date" id="combined-return" class="form-control">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="combined-guests">Guests</label>
+                <select id="combined-guests" class="form-control">
+                  <option value="1">1 Adult</option>
+                  <option value="2" selected>2 Adults</option>
+                  <option value="3">3 Adults</option>
+                  <option value="4">4 Adults</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="combined-rooms">Rooms</label>
+                <select id="combined-rooms" class="form-control">
+                  <option value="1" selected>1 Room</option>
+                  <option value="2">2 Rooms</option>
+                  <option value="3">3 Rooms</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="combined-transfer">Airport Transfer</label>
+                <select id="combined-transfer" class="form-control">
+                  <option value="yes" selected>Yes, include airport pickup</option>
+                  <option value="no">No, I'll arrange my own transport</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="combined-class">Travel Class</label>
+                <select id="combined-class" class="form-control">
+                  <option value="economy" selected>Economy</option>
+                  <option value="premium">Premium Economy</option>
+                  <option value="business">Business</option>
+                  <option value="first">First Class</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn search-btn">Search Packages</button>
+          </form>
+        </div>
+
+        <!-- Flights Form -->
+        <div class="booking-form" id="flights-form" style="display: none;">
+          <form>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="flight-from">From</label>
+                <input type="text" id="flight-from" class="form-control" placeholder="City or Airport">
+              </div>
+              <div class="form-group">
+                <label for="flight-to">To</label>
+                <input type="text" id="flight-to" class="form-control" placeholder="City or Airport">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="flight-depart">Departure Date</label>
+                <input type="date" id="flight-depart" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="flight-return">Return Date</label>
+                <input type="date" id="flight-return" class="form-control">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="flight-passengers">Passengers</label>
+                <select id="flight-passengers" class="form-control">
+                  <option value="1">1 Passenger</option>
+                  <option value="2" selected>2 Passengers</option>
+                  <option value="3">3 Passengers</option>
+                  <option value="4">4 Passengers</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="flight-class">Class</label>
+                <select id="flight-class" class="form-control">
+                  <option value="economy" selected>Economy</option>
+                  <option value="premium">Premium Economy</option>
+                  <option value="business">Business</option>
+                  <option value="first">First Class</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn search-btn">Search Flights</button>
+          </form>
+        </div>
+
+        <!-- Hotels Form -->
+        <div class="booking-form" id="hotels-form" style="display: none;">
+          <form>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="hotel-destination">Destination</label>
+                <input type="text" id="hotel-destination" class="form-control" placeholder="City or Hotel Name">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="hotel-checkin">Check-in Date</label>
+                <input type="date" id="hotel-checkin" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="hotel-checkout">Check-out Date</label>
+                <input type="date" id="hotel-checkout" class="form-control">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="hotel-guests">Guests</label>
+                <select id="hotel-guests" class="form-control">
+                  <option value="1">1 Adult</option>
+                  <option value="2" selected>2 Adults</option>
+                  <option value="3">3 Adults</option>
+                  <option value="4">4 Adults</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="hotel-rooms">Rooms</label>
+                <select id="hotel-rooms" class="form-control">
+                  <option value="1" selected>1 Room</option>
+                  <option value="2">2 Rooms</option>
+                  <option value="3">3 Rooms</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn search-btn">Search Hotels</button>
+          </form>
+        </div>
+
+        <!-- Transfers Form -->
+        <div class="booking-form" id="transfers-form" style="display: none;">
+          <form>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="transfer-airport">Airport</label>
+                <input type="text" id="transfer-airport" class="form-control" placeholder="Airport Name">
+              </div>
+              <div class="form-group">
+                <label for="transfer-destination">Destination</label>
+                <input type="text" id="transfer-destination" class="form-control" placeholder="Hotel or Address">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="transfer-date">Arrival Date</label>
+                <input type="date" id="transfer-date" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="transfer-time">Arrival Time</label>
+                <input type="time" id="transfer-time" class="form-control">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="transfer-passengers">Passengers</label>
+                <select id="transfer-passengers" class="form-control">
+                  <option value="1">1 Passenger</option>
+                  <option value="2" selected>2 Passengers</option>
+                  <option value="3">3 Passengers</option>
+                  <option value="4">4 Passengers</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="transfer-type">Vehicle Type</label>
+                <select id="transfer-type" class="form-control">
+                  <option value="sedan" selected>Sedan (1-3 passengers)</option>
+                  <option value="suv">SUV (1-5 passengers)</option>
+                  <option value="van">Van (1-8 passengers)</option>
+                  <option value="luxury">Luxury Vehicle</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn search-btn">Search Transfers</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">Why Choose SkyStay Connect</h2>
+      <div class="grid grid-cols-4 md-grid-cols-2 gap-4">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3 class="feature-title">Global Network</h3>
+          <p class="feature-description">Access to over 500 airlines and 100,000 hotels worldwide.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-hand-holding-usd"></i>
+          </div>
+          <h3 class="feature-title">Best Price Guarantee</h3>
+          <p class="feature-description">Find a lower price? We'll match it and give you an additional 10% off.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-car"></i>
+          </div>
+          <h3 class="feature-title">Seamless Transfers</h3>
+          <p class="feature-description">Professional drivers will be waiting for you at the airport.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3 class="feature-title">24/7 Support</h3>
+          <p class="feature-description">Our dedicated team is available around the clock to assist you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Destinations Section -->
+  <section class="destinations">
+    <div class="container">
+      <h2 class="section-title">Popular Destinations</h2>
+      <div class="grid grid-cols-3 md-grid-cols-1 gap-4">
+        <div class="destination-card">
+          <img src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Paris" class="destination-img">
+          <div class="destination-content">
+            <h3 class="destination-title">Paris, France</h3>
+            <p class="destination-price">From $899</p>
+            <div class="destination-features">
+              <span class="destination-feature">
+                <i class="fas fa-plane"></i> Flight
+              </span>
+              <span class="destination-feature">
+                <i class="fas fa-hotel"></i> 4 Nights
+              </span>
+              <span class="destination-feature">
+                <i class="fas fa-car"></i> Transfer
+              </span>
+            </div>
+            <button class="btn btn-outline w-full">View Package</button>
+          </div>
+        </div>
+        <div class="destination-card">
+          <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Tokyo" class="destination-img">
+          <div class="destination-content">
+            <h3 class="destination-title">Tokyo, Japan</h3>
+            <p class="destination-price">From $1,299</p>
+            <div class="destination-features">
+              <span class="destination-feature">
+                <i class="fas fa-plane"></i> Flight
+              </span>
+              <span class="destination-feature">
+                <i class="fas fa-hotel"></i> 6 Nights
+              </span>
+              <span class="destination-feature">
+                <i class="fas fa-car"></i> Transfer
+              </span>
+            </div>
+            <button class="btn btn-outline w-full">View Package</button>
+          </div>
+        </div>
+        <div class="destination-card">
+          <img src="https://images.unsplash.com/photo-1538332576228-eb5b4c4de6f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Bali" class="destination-img">
+          <div class="destination-content">
+            <h3 class="destination-title">Bali, Indonesia</h3>
+            <p class="destination-price">From $1,099</p>
+            <div class="destination-features">
+              <span class="destination-feature">
+                <i class="fas fa-plane"></i> Flight
+              </span>
+              <span class="destination-feature">
+                <i class="fas fa-hotel"></i> 7 Nights
+              </span>
+              <span class="destination-feature">
+                <i class="fas fa-car"></i> Transfer
+              </span>
+            </div>
+            <button class="btn btn-outline w-full">View Package</button>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <button class="btn">View All Destinations</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+      <h2 class="section-title">What Our Customers Say</h2>
+      <div class="grid grid-cols-3 md-grid-cols-1 gap-4">
+        <div class="testimonial-card">
+          <p class="testimonial-text">"The combined booking experience was seamless. Having a driver waiting for us at the airport made our arrival stress-free. Will definitely use SkyStay Connect for all our future travels!"</p>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson" class="testimonial-avatar">
+            <div>
+              <div class="testimonial-name">Messaoud</div>
+              <div class="testimonial-role">Traveled to Paris</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"The hotel recommendations were spot on for our family vacation. The flight was comfortable and on time. The best part was the convenience of having everything in one booking."</p>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Simou" class="testimonial-avatar">
+            <div>
+              <div class="testimonial-name">Simou</div>
+              <div class="testimonial-role">Traveled to Tokyo</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"The 24/7 support came in handy when our flight was delayed. SkyStay Connect immediately arranged for a later airport pickup and notified our hotel. Exceptional service!"</p>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sonia" class="testimonial-avatar">
+            <div>
+              <div class="testimonial-name">Sonia</div>
+              <div class="testimonial-role">Traveled to Bali</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready for Your Next Adventure?</h2>
+        <p>Sign up now and receive a $50 credit on your first combined booking. Plus, enjoy exclusive member-only deals and priority customer service.</p>
+        <button class="btn btn-secondary" id="cta-signup-btn">Sign Up Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-title">SkyStay Connect</h3>
+          <p class="mb-3">Your all-in-one travel solution for flights, hotels, and airport transfers.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">Search Flights</a></li>
+            <li><a href="#" class="footer-link">Search Hotels</a></li>
+            <li><a href="#" class="footer-link">Package Deals</a></li>
+            <li><a href="#" class="footer-link">Airport Transfers</a></li>
+            <li><a href="#" class="footer-link">Travel Insurance</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-title">About</h3>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">About Us</a></li>
+            <li><a href="#" class="footer-link">Careers</a></li>
+            <li><a href="#" class="footer-link">Press Center</a></li>
+            <li><a href="#" class="footer-link">Travel Blog</a></li>
+            <li><a href="#" class="footer-link">Partners</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-title">Contact Us</h3>
+          <div class="footer-contact">
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt contact-icon"></i>
+              <span>123 Travel Way, Suite 500<br>New York, NY 10001</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone-alt contact-icon"></i>
+              <span>+1 (800) 123-4567</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope contact-icon"></i>
+              <span>info@skystayconnect.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 SkyStay Connect. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Login Modal -->
+  <div class="modal" id="login-modal">
+    <div class="modal-content">
+      <button class="modal-close" id="login-close"><i class="fas fa-times"></i></button>
+      <h2 class="modal-title">Login to Your Account</h2>
+      <form>
+        <div class="form-group mb-3">
+          <label for="login-email">Email Address</label>
+          <input type="email" id="login-email" class="form-control" placeholder="Enter your email">
+        </div>
+        <div class="form-group mb-3">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" class="form-control" placeholder="Enter your password">
+        </div>
+        <div class="flex justify-between items-center mb-4">
+          <label>
+            <input type="checkbox"> Remember me
+          </label>
+          <a href="#" class="text-primary">Forgot Password?</a>
+        </div>
+        <button type="submit" class="btn w-full mb-3">Login</button>
+        <p class="text-center">Don't have an account? <a href="#" id="switch-to-signup" class="text-primary">Sign up</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Signup Modal -->
+  <div class="modal" id="signup-modal">
+    <div class="modal-content">
+      <button class="modal-close" id="signup-close"><i class="fas fa-times"></i></button>
+      <h2 class="modal-title">Create an Account</h2>
+      <form>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="signup-firstname">First Name</label>
+            <input type="text" id="signup-firstname" class="form-control" placeholder="Enter your first name">
+          </div>
+          <div class="form-group">
+            <label for="signup-lastname">Last Name</label>
+            <input type="text" id="signup-lastname" class="form-control" placeholder="Enter your last name">
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="signup-email">Email Address</label>
+          <input type="email" id="signup-email" class="form-control" placeholder="Enter your email">
+        </div>
+        <div class="form-group mb-3">
+          <label for="signup-password">Password</label>
+          <input type="password" id="signup-password" class="form-control" placeholder="Create a password">
+        </div>
+        <div class="form-group mb-4">
+          <label for="signup-confirm">Confirm Password</label>
+          <input type="password" id="signup-confirm" class="form-control" placeholder="Confirm your password">
+        </div>
+        <div class="mb-4">
+          <label>
+            <input type="checkbox"> I agree to the <a href="#" class="text-primary">Terms of Service</a> and <a href="#" class="text-primary">Privacy Policy</a>
+          </label>
+        </div>
+        <button type="submit" class="btn w-full mb-3">Create Account</button>
+        <p class="text-center">Already have an account? <a href="#" id="switch-to-login" class="text-primary">Login</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
